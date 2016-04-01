@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI; 
 using System.Collections;
 
@@ -21,10 +22,6 @@ public class LevelSelectionScript : MonoBehaviour {
 
 	public void OnClickedLevel(int currentLevel) {
 		PlayerPrefs.SetInt("currentLevel", currentLevel);
-		Application.LoadLevel ("Level" + currentLevel);
-	}
-
-	public void OnClickShop() {
-		Application.LoadLevel ("Shop");
+		SceneManager.LoadScene ("Level" + currentLevel);
 	}
 }

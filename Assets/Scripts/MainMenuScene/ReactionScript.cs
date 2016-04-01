@@ -1,19 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class ReactionScript : MonoBehaviour {
 	public GameObject loadingLevelPanel;
-	private int numberOfWeapons = 3;
-
-	void Start() {
-		if(PlayerPrefs.GetInt ("openedLevel", 1) == 1) {
-			PlayerPrefs.SetInt("weapon" + 0, 1);
-			for(int i= 1; i < numberOfWeapons; i++) {
-				PlayerPrefs.SetInt("weapon" + i, 0);
-			}
-		}
-	}
 
 	public void ClickedLevelSelector() {
 		print ("clicked load LevelSelector");
@@ -22,21 +13,16 @@ public class ReactionScript : MonoBehaviour {
 	
 	public void ClickedShop() {
 		print ("clicked shop");
-		Application.LoadLevel ("Shop");
+		SceneManager.LoadScene ("Shop");
 	}
-
-	public void ClickedChallengeMode() {
-		print ("clicked challengeMode");
-		Application.LoadLevel ("Challenge");
-	}
-
+		
 	public void ClickedExit() {
 		print ("clicked exit");
 		Application.Quit ();
 	}
 
 	IEnumerator LoadLevel() {
-		AsyncOperation asyncOperation = Application.LoadLevelAsync ("LevelSelector");
+		AsyncOperation asyncOperation = SceneManager.LoadSceneAsync ("LevelSelector");
 		
 		loadingLevelPanel.SetActive (true);
 		Text progressText = loadingLevelPanel.GetComponentInChildren<Text>();
