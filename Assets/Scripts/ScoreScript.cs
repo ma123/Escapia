@@ -13,7 +13,7 @@ public class ScoreScript : MonoBehaviour {
 	}
 
 	private static void RefreshScoreText() {
-		moneyText.text = money + " €";
+		moneyText.text = money.ToString();
 	}
 
 	public static void AddScore(int gains) {

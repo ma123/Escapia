@@ -4,6 +4,7 @@ using System.Collections;
 public class SpikeScript : MonoBehaviour {
 
 	public void SpikeReact() {
-		HealthScript.Hit (100);
+		GameObject health = GameObject.FindGameObjectWithTag("HealthBarReact");
+		health.GetComponent<HealthScript> ().Hit(100f);
 	}
 }

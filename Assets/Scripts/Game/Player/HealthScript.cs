@@ -1,58 +1,46 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class HealthScript : MonoBehaviour {
-	private static int health = 100;
-	private static float initSize;
-	private static bool isDead = false;
+	private float health = 100f;
 	public GameObject deadPanel;
-	private static Transform transformHealth;
+	public GameObject healthBar;
 	
 	// Use this for initialization
 	void Start () {
-		transformHealth = transform;
-		initSize = transformHealth.localScale.x;  // zisti pociatocnu velkost health baru
-		health = 100;
+		health = 100f;
 		RefreshHealthBar ();
 	}
 	
-	public static void Hit(int damage) {
-		if(isDead) {
-			return;
-		}
-		
+	public void Hit(float damage) {
 		health -= damage;
 		
-		if(health <= 0) {
-			health = 0;
-			isDead = true;
+		if(health <= 0f) {
+			health = 0f;
+			Time.timeScale = 0; // pauznutie hry
+			deadPanel.SetActive(true);
 		}
 		
 		RefreshHealthBar ();
 	}
 
-	public static void AddHealth(int addedHealth) {
-
+	public void AddHealth(float addedHealth) {
 		health += addedHealth;
-		if(health >= 100) {
-			health = 100;
+		if(health >= 100f) {
+			health = 100f;
 		}
-
 
 		RefreshHealthBar ();
 	}
-
-	void OnGUI() {
-		if (isDead) {
-			Time.timeScale = 0; // pauznutie hry
-			deadPanel.SetActive(true);
-			isDead = false;
-		} 
-	}
 	
-    private static void RefreshHealthBar() {
-		Vector3 scale = transformHealth.localScale;
-		scale.x = (initSize / 100) * health;
-		transformHealth.localScale = scale;
+    private void RefreshHealthBar() {
+		Scrollbar healthScroll = healthBar.GetComponent<Scrollbar> ();
+		healthScroll.size = health / 100f;
 	}
 }
+	
+
+	
+
+	

@@ -1,0 +1,11 @@
+Monster1 - Prvé 4 framey sú animácia toho, keï na príšeru prvı krát narazíš. Frame 5 a 6 sa môu opakova ako útok.
+	   Zabiješ na 2 rany.
+	   Keï príšeru zabiješ ostane na zemi màtvola - frame 1.
+
+Monster2 - Prvé dva framey sa striedajú, letí k hrdinovi.
+           Zabiješ na 1 ranu.
+	   Keï príšeru zabiješ tretí frame ostane na zemi - to je to èo môeš tlaèi do jám.
+
+Monster3 - Toto je ten, èo strie¾a. Strela by mala by fialová a vychádza z jeho ruky.
+           "Zabiješ" na 4 rany.
+           Keï ho nieko¾ko krát zasiahneš, mal by sa strati (nieèo ako teleportova alebo tak)

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BossScript : MonoBehaviour {
 	public int enemyHP = 50;
-	public int attackStrength = 20;
+	public float attackStrength = 20;
 	
 	public float walkSpeed = 1.0f;      // Walkspeed
 	public float wallLeft = 0.0f;       // Define wallLeft
@@ -31,7 +31,8 @@ public class BossScript : MonoBehaviour {
 	}
 	
 	public void EnemyReact () {
-		HealthScript.Hit (attackStrength);
+		GameObject health = GameObject.FindGameObjectWithTag("HealthBarReact");
+		health.GetComponent<HealthScript> ().Hit(attackStrength);
 	}
 	
 	public void EnemyHit (int gunStrength) {
