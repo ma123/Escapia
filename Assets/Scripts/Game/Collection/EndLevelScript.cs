@@ -2,10 +2,13 @@
 using System.Collections;
 
 public class EndLevelScript : MonoBehaviour {
-	private bool isWin = false;
 	private int openedLevel = 0;
 	private int currentLevel = 0;
-	public GameObject endLevelPanel;
+	private GameObject endLevelPanel;
+
+	void Start() {
+		endLevelPanel = GameObject.Find ("ReactionFromEndPanel");
+	}
 
 	public void EndLevelReact () {
 		print ("end level");
@@ -17,15 +20,7 @@ public class EndLevelScript : MonoBehaviour {
 			PlayerPrefs.SetInt("openedLevel", openedLevel);
 			openedLevel = PlayerPrefs.GetInt ("openedLevel");
 		}
-		
-		isWin = true;
-	}
 
-	void OnGUI() {
-		if (isWin) {
-			Time.timeScale = 0; // pauznutie hry
-			endLevelPanel.SetActive(true);
-			isWin = false;
-		} 
+		endLevelPanel.GetComponent<ReactionFromPanelScript> ().PausePanelReaction (3);
 	}
 }

@@ -1,9 +1,12 @@
 fileFormatVersion: 2
 guid: 90dc6d9ce8b57504aaf112cbfbdc1fff
-timeCreated: 1459764287
+timeCreated: 1459881683
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: Monster2_0
+    21300002: Monster2_1
+    21300004: Monster2_2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -38,18 +41,92 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 140
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: Monster2_0
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 90
+        width: 216
+        height: 258
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 108, y: 57}
+        - {x: 91, y: 120}
+        - {x: 81, y: 129}
+        - {x: -1, y: 129}
+        - {x: -67, y: 115}
+        - {x: -97, y: 90}
+        - {x: -105, y: 48}
+        - {x: -92, y: 3}
+        - {x: -87, y: -4}
+        - {x: -108, y: -53}
+        - {x: -108, y: -111}
+        - {x: -72, y: -129}
+        - {x: -12, y: -129}
+        - {x: 27, y: -119}
+        - {x: 93, y: -86}
+        - {x: 104, y: -72}
+        - {x: 108, y: -30}
+    - name: Monster2_1
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 90
+        width: 216
+        height: 258
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 108, y: 57}
+        - {x: 91, y: 120}
+        - {x: 81, y: 129}
+        - {x: -1, y: 129}
+        - {x: -67, y: 115}
+        - {x: -97, y: 90}
+        - {x: -105, y: 48}
+        - {x: -92, y: 3}
+        - {x: -87, y: -4}
+        - {x: -108, y: -53}
+        - {x: -108, y: -111}
+        - {x: -72, y: -129}
+        - {x: -12, y: -129}
+        - {x: 27, y: -119}
+        - {x: 93, y: -86}
+        - {x: 104, y: -72}
+        - {x: 108, y: -30}
+    - name: Monster2_2
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 48
+        width: 216
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -77, y: 45}
+        - {x: -108, y: 10}
+        - {x: -108, y: -45}
+        - {x: 97, y: -45}
+        - {x: 108, y: -40}
+        - {x: 108, y: 38}
+        - {x: 89, y: 45}
     outline: []
   spritePackingTag: 
   userData: 

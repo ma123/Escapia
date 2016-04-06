@@ -14,17 +14,16 @@ public class PlayerControllerScript : MonoBehaviour {
 	BoxCollider2D playerCollision;
 	bool bIsCrouched = true;
 	float crouchHeight = 0.7f;
-	float standHeight = 1.839162f;
-	float crouchXOffset = 0.0f;
+	float standHeight = 2.043831f;
+	float crouchXOffset = -0.09972254f;
 	float crouchYOffset = 0.0f;
-	float standYOffset = 0.27f;
+	float standYOffset = 0.4100001f;
 
 	private bool attacking = false;
 	private float attackTimer = 0f;
 	private float attackCD = 0.3f;
 
 	public Collider2D attackTrigger;
-	private Animator anime;
 
 	void Start () {
 		Time.timeScale = 1; // po spustenie skriptu timeScale na 1 abz pokracovala hra aj po restarte
@@ -59,9 +58,7 @@ public class PlayerControllerScript : MonoBehaviour {
 				attackTrigger.enabled = false;
 			}
 		} 
-
-
-
+			
 		anim.SetBool ("Attack",attacking);
 	}
 
@@ -69,14 +66,14 @@ public class PlayerControllerScript : MonoBehaviour {
 		bIsCrouched = true;
 		playerCollision.size = new Vector2 (playerCollision.size.x, crouchHeight);
 		playerCollision.offset = new Vector2 (crouchXOffset, crouchYOffset);
-		anim.SetTrigger("Crouch");
+		anim.SetBool ("Crouch", bIsCrouched);
 	}
 
 	public void StandUp() {
 		bIsCrouched = false;
 		playerCollision.size = new Vector2 (playerCollision.size.x, standHeight);
 		playerCollision.offset = new Vector2 (crouchXOffset, standYOffset);
-		anim.SetTrigger("Crouch");
+		anim.SetBool ("Crouch", bIsCrouched);
 	}
 	
 	// pohyb po osi x

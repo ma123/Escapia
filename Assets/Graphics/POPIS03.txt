@@ -1,0 +1,9 @@
+Purple_Leviathan - môe by nieèo ako finálny boss,
+ 		 - stojí, iba "šlahá" chápadlami,
+                 - aj vpravo aj v¾avo od Leviathana je jedno Hearth_of_Purple_Leviathan, 
+                   keï zasiahneš srdce, Leviathan prestane šlaha na pár sekúnd,
+		 - 8 ivotov,
+                 - frame 6 - màtvola.
+
+Doplnky sú doplnky...
+

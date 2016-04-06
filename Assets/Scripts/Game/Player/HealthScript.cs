@@ -4,11 +4,12 @@ using System.Collections;
 
 public class HealthScript : MonoBehaviour {
 	private float health = 100f;
-	public GameObject deadPanel;
+	private GameObject endLevelPanel;
 	public GameObject healthBar;
 	
 	// Use this for initialization
 	void Start () {
+		endLevelPanel = GameObject.Find ("ReactionFromEndPanel");
 		health = 100f;
 		RefreshHealthBar ();
 	}
@@ -18,8 +19,7 @@ public class HealthScript : MonoBehaviour {
 		
 		if(health <= 0f) {
 			health = 0f;
-			Time.timeScale = 0; // pauznutie hry
-			deadPanel.SetActive(true);
+			endLevelPanel.GetComponent<ReactionFromPanelScript> ().PausePanelReaction (2);
 		}
 		
 		RefreshHealthBar ();

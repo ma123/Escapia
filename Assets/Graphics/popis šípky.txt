@@ -1,0 +1,4 @@
+1 - doprava,
+2 - do¾ava,
+3 - dole,
+4 - útok.

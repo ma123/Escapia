@@ -23,9 +23,5 @@ public class CameraFollowScript : MonoBehaviour {
 		newPos.z = pos.z;
 		
 		transform.position = Vector3.Lerp(transform.position, newPos, 1f);
-
-		if (Input.GetKeyDown (KeyCode.Escape)) { 
-			Application.LoadLevel("LevelSelector"); 
-		}
 	}
 }

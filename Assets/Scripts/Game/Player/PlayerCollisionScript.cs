@@ -16,12 +16,10 @@ public class PlayerCollisionScript : MonoBehaviour {
 				if(damageLock) {
 					damageLock = false;
 
-					//Vector2 hurtVector = transform.position - coll.transform.position + Vector2.up * 5f;
-
 					AudioSource.PlayClipAtPoint(ouchClips, transform.position);
-				    this.GetComponent<Rigidbody2D>().AddForce (new Vector2 (0f, 200f));   // prida v rigidbody Vektor2 y osi silu jumpForce
+					this.GetComponent<Rigidbody2D>().AddForce (new Vector2(0f,200f),ForceMode2D.Force);
 
-					enemy.GetComponent<EnemyScript> ().EnemyReact();
+					enemy.GetComponent<EnemyPatrolHole> ().EnemyReact();
 					damageLock = true;  
 				}
 				lastTime = Time.time;
@@ -34,7 +32,7 @@ public class PlayerCollisionScript : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionStay2D(Collision2D coll) {
+	/*void OnCollisionStay2D(Collision2D coll) {
 		if (coll.collider.CompareTag ("Enemy")) {
 			GameObject enemy = coll.collider.gameObject;
 			
@@ -48,7 +46,7 @@ public class PlayerCollisionScript : MonoBehaviour {
 				lastTime = Time.time;
 			}
 		}
-	}
+	}*/
 
 	void OnTriggerEnter2D(Collider2D coll) {
 		if(coll.GetComponent<Collider2D>().CompareTag("Coin")) {
