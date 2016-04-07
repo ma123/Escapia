@@ -38,24 +38,24 @@ public class SoundsAndMusicScript : MonoBehaviour {
 					musicBackground.clip = bgIntro01;  // priradi intro melodiu  
 					musicBackground.Play();  
 					yield return new WaitForSeconds(musicBackground.clip.length);  // ked zisti ze skoncilo intro 
-					musicBackground.clip = bgLoop01; // priradi loop melodiu
+					//musicBackground.clip = bgLoop01; // priradi loop melodiu
 					break;
 			case 2:
 			print ("bg 02");
 					musicBackground.clip = bgIntro02;  // priradi intro melodiu  
 					musicBackground.Play();  
 					yield return new WaitForSeconds(musicBackground.clip.length);  // ked zisti ze skoncilo intro 
-					musicBackground.clip = bgLoop02; // priradi loop melodiu
+					//musicBackground.clip = bgLoop02; // priradi loop melodiu
 					break;
 			case 3:
 			print ("bg 03");
 					musicBackground.clip = bgIntro03;  // priradi intro melodiu  
 					musicBackground.Play();  
 					yield return new WaitForSeconds(musicBackground.clip.length);  // ked zisti ze skoncilo intro 
-					musicBackground.clip = bgLoop03; // priradi loop melodiu
+					//musicBackground.clip = bgLoop03; // priradi loop melodiu
 					break;
 		}
-		musicBackground.Play();
+		//musicBackground.Play();
 	}
 
 	public AudioSource GetMusicBackgroundObject() {

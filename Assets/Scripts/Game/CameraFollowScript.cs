@@ -6,6 +6,10 @@ public class CameraFollowScript : MonoBehaviour {
 	public Transform observingObject;
 	public bool withOffset;
 	public int offset;
+
+	void Start() {
+	
+	}
 	
 	void Update()
 	{

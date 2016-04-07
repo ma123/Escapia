@@ -17,8 +17,9 @@ public class EnemyPatrolHole : MonoBehaviour {
 	private Rigidbody2D enemyRigidbody;
 	private float xColliderSize = 2.236092f;
 	private float yColliderSize = 0.7475041f;
-	private float xColliderOffset = 0f;
-	private float yColliderOffset = 0f;
+	//private float xColliderOffset = 0f;
+	//private float yColliderOffset = 0f;
+	public bool isTrigger = false;
 
 	void Start () {
 		this.originalX = this.transform.position.x;
@@ -53,12 +54,23 @@ public class EnemyPatrolHole : MonoBehaviour {
 			walking = false;
 			anim.SetBool ("Death",true);
 			this.gameObject.tag = "Untagged";
-			enemyRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
-			//enemyCollision.isTrigger = true;
-			//enemyRigidbody.constraints = RigidbodyConstraints2D.FreezePositionX;
+			if (isTrigger) {
+				//enemyRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+				enemyRigidbody.constraints = RigidbodyConstraints2D.FreezePositionY;
 
-			enemyCollision.size = new Vector2 (xColliderSize, yColliderSize);
-			enemyCollision.offset = new Vector2 (xColliderOffset, yColliderOffset);
+				//enemyCollision.size = new Vector2 (xColliderSize, yColliderSize);
+				//enemyCollision.offset = new Vector2 (xColliderOffset, yColliderOffset);
+				transform.position = new Vector2(transform.position.x, transform.position.y - 0.8f);
+				enemyCollision.isTrigger = true;
+			} else {
+				enemyRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+				//enemyCollision.isTrigger = true;
+				//enemyRigidbody.constraints = RigidbodyConstraints2D.FreezePositionX;
+
+				enemyCollision.size = new Vector2 (xColliderSize, yColliderSize);
+				//enemyCollision.offset = new Vector2 (xColliderOffset, yColliderOffset);
+			}
+
 			ScoreScript.AddScore(1);
 		}
 	}
