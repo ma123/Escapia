@@ -22,6 +22,8 @@ public class PlayerControllerScript : MonoBehaviour {
 	private bool attacking = false;
 	private float attackTimer = 0f;
 	private float attackCD = 0.3f;
+	private float waitAttack = 1.0f;
+	private float lastTime = 0.0f;
 
 	public Collider2D attackTrigger;
 
@@ -51,12 +53,12 @@ public class PlayerControllerScript : MonoBehaviour {
         #endif
 
 		if(attacking) {
-			if (attackTimer > 0) {
-				attackTimer -= Time.deltaTime;
-			} else {
-				attacking = false;
-				attackTrigger.enabled = false;
-			}
+				if (attackTimer > 0) {
+					attackTimer -= Time.deltaTime;
+				} else {
+					attacking = false;
+					attackTrigger.enabled = false;
+				}
 		} 
 			
 		anim.SetBool ("Attack",attacking);
@@ -104,9 +106,12 @@ public class PlayerControllerScript : MonoBehaviour {
 	}
 
 	public void Attack() {
-		attacking = true;
-		attackTimer = attackCD;
-		attackTrigger.enabled = true;
+		if (Time.time > waitAttack + lastTime) {
+			attacking = true;
+			attackTimer = attackCD;
+			attackTrigger.enabled = true;
+			lastTime = Time.time;
+		}
 	}
 }
 

@@ -1,0 +1,214 @@
+fileFormatVersion: 2
+guid: 4dc57ab0ce763f746908a23d503aac68
+timeCreated: 1460222960
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: uibutton_0
+    21300002: uibutton_1
+    21300004: uibutton_2
+    21300006: uibutton_3
+    21300008: uibutton_4
+    21300010: uibutton_5
+    21300012: uibutton_6
+    21300014: uibutton_7
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: uibutton_0
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 768
+        width: 132
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -62, y: 66}
+        - {x: -66, y: 62}
+        - {x: -66, y: -62}
+        - {x: -62, y: -66}
+        - {x: 66, y: -66}
+        - {x: 66, y: 66}
+    - name: uibutton_1
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 768
+        width: 138
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 68, y: 66}
+        - {x: -69, y: 66}
+        - {x: -69, y: -66}
+        - {x: 64, y: -66}
+        - {x: 65, y: -61}
+        - {x: 69, y: 1}
+        - {x: 69, y: 64}
+    - name: uibutton_2
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 834
+        width: 6
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: uibutton_3
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 822
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: uibutton_4
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 570
+        width: 252
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 126, y: 77}
+        - {x: 122, y: 77}
+        - {x: 122, y: 81}
+        - {x: -122, y: 81}
+        - {x: -122, y: 77}
+        - {x: -126, y: 77}
+        - {x: -126, y: -77}
+        - {x: -122, y: -77}
+        - {x: -122, y: -81}
+        - {x: 122, y: -81}
+        - {x: 122, y: -77}
+        - {x: 126, y: -77}
+    - name: uibutton_5
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 384
+        width: 432
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 216, y: 74}
+        - {x: 212, y: 74}
+        - {x: 212, y: 78}
+        - {x: -212, y: 78}
+        - {x: -212, y: 74}
+        - {x: -216, y: 74}
+        - {x: -216, y: -74}
+        - {x: -212, y: -74}
+        - {x: -212, y: -78}
+        - {x: 212, y: -78}
+        - {x: 212, y: -74}
+        - {x: 216, y: -74}
+    - name: uibutton_6
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 222
+        width: 252
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 122, y: 62}
+        - {x: 122, y: 66}
+        - {x: -122, y: 66}
+        - {x: -122, y: 62}
+        - {x: -126, y: 62}
+        - {x: -126, y: -62}
+        - {x: -122, y: -62}
+        - {x: -122, y: -66}
+        - {x: 122, y: -66}
+        - {x: 122, y: -62}
+        - {x: 126, y: -62}
+        - {x: 126, y: 62}
+    - name: uibutton_7
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 42
+        width: 312
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 156, y: 62}
+        - {x: 152, y: 62}
+        - {x: 152, y: 66}
+        - {x: -152, y: 66}
+        - {x: -152, y: 62}
+        - {x: -156, y: 62}
+        - {x: -156, y: -62}
+        - {x: -152, y: -62}
+        - {x: -152, y: -66}
+        - {x: 152, y: -66}
+        - {x: 152, y: -62}
+        - {x: 156, y: -62}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -8,10 +8,10 @@ public class EnemyGunScript : MonoBehaviour {
 	public float bulletSpeed = 19.0f;
 	public float fireRate = 1.0f;
 	private float lastShoot = 0f;
-	private EnemyPatrolHole enemyScript;
+	private Enemy1Patrol enemyScript;
 	
 	void Start() {
-		enemyScript = GetComponentInParent<EnemyPatrolHole> ();
+		enemyScript = GetComponentInParent<Enemy1Patrol> ();
 	}
 	
 	// Update is called once per frame

@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyPatrolHole : MonoBehaviour {
-	public int enemyHP = 1;
+public class Enemy1Patrol : MonoBehaviour {
+	public int enemyHP = 2;
 	public float attackStrength = 20;
+	public int enemyGain = 2;
 
 	public float walkSpeed = 1.0f;      // Walkspeed
 	public float wallLeft = 0.0f;       // Define wallLeft
@@ -15,10 +16,11 @@ public class EnemyPatrolHole : MonoBehaviour {
 	private bool walking = true;
 	private BoxCollider2D enemyCollision;
 	private Rigidbody2D enemyRigidbody;
-	private float xColliderSize = 2.236092f;
-	private float yColliderSize = 0.7475041f;
-	//private float xColliderOffset = 0f;
-	//private float yColliderOffset = 0f;
+	public float xColliderSize = 2.236092f;
+	public float yColliderSize = 0.7475041f;
+	public float xCollOff = 0.0f;
+	public float yCollOff = 0.0f;
+	public float downOff = 0.5f;
 	public bool isTrigger = false;
 
 	void Start () {
@@ -55,23 +57,18 @@ public class EnemyPatrolHole : MonoBehaviour {
 			anim.SetBool ("Death",true);
 			this.gameObject.tag = "Untagged";
 			if (isTrigger) {
-				//enemyRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
 				enemyRigidbody.constraints = RigidbodyConstraints2D.FreezePositionY;
 
-				//enemyCollision.size = new Vector2 (xColliderSize, yColliderSize);
-				//enemyCollision.offset = new Vector2 (xColliderOffset, yColliderOffset);
-				transform.position = new Vector2(transform.position.x, transform.position.y - 0.8f);
+				transform.position = new Vector2(transform.position.x, transform.position.y - downOff);
 				enemyCollision.isTrigger = true;
 			} else {
 				enemyRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
-				//enemyCollision.isTrigger = true;
-				//enemyRigidbody.constraints = RigidbodyConstraints2D.FreezePositionX;
 
 				enemyCollision.size = new Vector2 (xColliderSize, yColliderSize);
-				//enemyCollision.offset = new Vector2 (xColliderOffset, yColliderOffset);
+				enemyCollision.offset = new Vector2 (xCollOff, yCollOff);
 			}
 
-			ScoreScript.AddScore(1);
+			ScoreScript.AddScore(enemyGain);
 		}
 	}
 

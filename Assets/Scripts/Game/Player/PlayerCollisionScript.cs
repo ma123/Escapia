@@ -5,21 +5,43 @@ public class PlayerCollisionScript : MonoBehaviour {
 	public static bool damageLock = true;
 	private float waitTime = 2f;
 	private float lastTime = 0f;
-
 	public AudioClip ouchClips;
 
+	void FixedUpdate() {
+		if(damageLock) {
+			this.GetComponent<SpriteRenderer> ().color = Color.white;
+		}
+	}
+
 	void OnCollisionEnter2D(Collision2D coll) {
-		if (coll.collider.CompareTag ("Enemy")) {
+		if (coll.collider.CompareTag ("Enemy1")) {
+			GameObject enemy = coll.collider.gameObject;
+
+			if (Time.time > waitTime + lastTime) {
+				if (damageLock) {
+					damageLock = false;
+					this.GetComponent<SpriteRenderer> ().color = Color.red; // zafarbenie hraca na cerveno
+					AudioSource.PlayClipAtPoint (ouchClips, transform.position);
+					this.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (0f, 200f), ForceMode2D.Force);
+					enemy.GetComponent<Enemy1Patrol> ().EnemyReact ();
+					damageLock = true;  
+				}
+					
+				lastTime = Time.time;
+			}
+		}
+
+		if (coll.collider.CompareTag ("Enemy2")) {
 			GameObject enemy = coll.collider.gameObject;
 
 			if (Time.time > waitTime + lastTime) {
 				if(damageLock) {
 					damageLock = false;
-
+					this.GetComponent<SpriteRenderer> ().color = Color.red; // zafarbenie hraca na cerveno
 					AudioSource.PlayClipAtPoint(ouchClips, transform.position);
 					this.GetComponent<Rigidbody2D>().AddForce (new Vector2(0f,200f),ForceMode2D.Force);
 
-					enemy.GetComponent<EnemyPatrolHole> ().EnemyReact();
+					enemy.GetComponent<Enemy2Patrol> ().EnemyReact();
 					damageLock = true;  
 				}
 				lastTime = Time.time;
