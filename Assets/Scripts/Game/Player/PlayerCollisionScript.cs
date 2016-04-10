@@ -48,6 +48,24 @@ public class PlayerCollisionScript : MonoBehaviour {
 			}
 		}
 
+		if (coll.collider.CompareTag ("Enemy3")) {
+			GameObject enemy = coll.collider.gameObject;
+
+			print (enemy);
+			if (Time.time > waitTime + lastTime) {
+				if(damageLock) {
+					damageLock = false;
+					this.GetComponent<SpriteRenderer> ().color = Color.red; // zafarbenie hraca na cerveno
+					AudioSource.PlayClipAtPoint(ouchClips, transform.position);
+					this.GetComponent<Rigidbody2D>().AddForce (new Vector2(0f,200f),ForceMode2D.Force);
+
+					enemy.GetComponent<Enemy3Static> ().EnemyReact();
+					damageLock = true;  
+				}
+				lastTime = Time.time;
+			}
+		}
+
 		if (coll.collider.CompareTag ("Trampoline")) {
 			GameObject trampoline = coll.collider.gameObject;
 			trampoline.GetComponent<TrampolineScript> ().TrampolineReact ();
