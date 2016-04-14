@@ -12,7 +12,7 @@ public class PlayerControllerScript : MonoBehaviour {
 
 	// crouch
 	BoxCollider2D playerCollision;
-	bool bIsCrouched = true;
+	bool bIsCrouched = false;
 	float crouchHeight = 0.7f;
 	float standHeight = 2.043831f;
 	float crouchXOffset = -0.09972254f;
@@ -102,7 +102,9 @@ public class PlayerControllerScript : MonoBehaviour {
 	}
 
 	public void StartMoving(float horizontalInput) {
-		hInput = horizontalInput;
+		if(!bIsCrouched) {
+			hInput = horizontalInput;
+		}
 	}
 
 	public void Attack() {

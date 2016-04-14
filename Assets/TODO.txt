@@ -1,14 +1,15 @@
 - pridanie zvukov 
+- opravit nemoze sa zohnut ked sa hybe
 - zosuladenie animacii s pohybom hraca a nepriatelov
 - zvysit hratelnost
 - pridat ikonu
 - pridat dalseiho nepriatela ktory striela static
-- pridat strigu ktora bude sa h˝baù po urËit˝ch bodoch popripade patrol ktor· bude strieæaù
+- pridat strigu ktora bude sa h?ba? po ur?it?ch bodoch popripade patrol ktor? bude strie?a?
 - boss enemy
 - level selector
 - dostanie sa do next levela
-- progress bar opraviù
-- particle filte pri smrti hr·Ëa
+- progress bar opravi?
+- particle filte pri smrti hr??a
 - particle filter pri utoku
 - particle filter strely
-- 
+- background music orezat
