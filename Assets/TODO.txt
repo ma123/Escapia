@@ -1,0 +1,14 @@
+- pridanie zvukov 
+- zosuladenie animacii s pohybom hraca a nepriatelov
+- zvysit hratelnost
+- pridat ikonu
+- pridat dalseiho nepriatela ktory striela static
+- pridat strigu ktora bude sa hıba po urèitıch bodoch popripade patrol ktorá bude strie¾a
+- boss enemy
+- level selector
+- dostanie sa do next levela
+- progress bar opravi
+- particle filte pri smrti hráèa
+- particle filter pri utoku
+- particle filter strely
+- 
