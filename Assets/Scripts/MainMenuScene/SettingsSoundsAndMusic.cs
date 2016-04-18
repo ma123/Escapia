@@ -27,6 +27,7 @@ public class SettingsSoundsAndMusic : MonoBehaviour {
 	}
 
 	public void ClickSoundEnabled() {
+		print ("sound click");
 		if (soundToggle.isOn) {
 			PlayerPrefs.SetInt ("sound", 1);
 		} else {
@@ -35,6 +36,7 @@ public class SettingsSoundsAndMusic : MonoBehaviour {
 	}
 
 	public void ClickMusicEnabled() {
+		print ("music click");
 		if (musicToggle.isOn) {
 			PlayerPrefs.SetInt ("music", 1);
 		} else {

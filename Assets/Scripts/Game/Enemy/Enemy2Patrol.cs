@@ -87,12 +87,10 @@ public class Enemy2Patrol : MonoBehaviour {
 				this.gameObject.tag = "Untagged";
 				if (isTrigger) {
 					enemyRigidbody.constraints = RigidbodyConstraints2D.FreezePositionY;
-
 					transform.position = new Vector2(transform.position.x, transform.position.y - downOff);
 					enemyCollision.isTrigger = true;
 				} else {
 					enemyRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
-
 					enemyCollision.size = new Vector2 (xColliderSize, yColliderSize);
 					enemyCollision.offset = new Vector2 (xCollOff, yCollOff);
 				}

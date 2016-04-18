@@ -5,23 +5,16 @@ using System;
 using System.Collections;
 
 public class LevelSelectionScript : MonoBehaviour {
-	private int openedLevel = 1;	
-	private int numberOfLevels = 6;
-	private GameObject gameObject;
-
+	private static int numberOfLevels = 10;
 	public GameObject levelLoadingPanel;
 	private int loadProgress;
 
 	void Start() {
-		openedLevel = PlayerPrefs.GetInt ("openedLevel", 1);
-
-		// vypnutie interakcie levelov ktore nie su pristupne
-		for(int i = openedLevel+1; i <= numberOfLevels; i++) {
-			gameObject = GameObject.Find("Lvl"+i+"Btn");
-			gameObject.GetComponent<Button>().interactable = false;
+		for(int j = 2; j <= numberOfLevels; j++){ // podla poctu levelo
+			if((PlayerPrefs.GetInt("level"+j.ToString(), 0))==1){
+				GameObject.Find("Lvl"+j+"Lock").SetActive(false); // vypnutie tlacitka zo zamkom nad skutocnym tlacitkom
+			}
 		}
-
-		//PlayerPrefs.DeleteAll ();
 	}
 
 	void Update () {
@@ -31,7 +24,6 @@ public class LevelSelectionScript : MonoBehaviour {
 	}
 
 	public void OnClickedLevel(string level) {
-		//PlayerPrefs.SetInt("currentLevel", level);
 		StartCoroutine (DisplayLevelLoadingScreen(level));
 	}
 
@@ -50,5 +42,9 @@ public class LevelSelectionScript : MonoBehaviour {
 			progressBar.size = loadProgress / 100f;
 			yield return null;
 		}
+	}
+
+	public static int GetNumberOfLevels() {
+		return numberOfLevels;
 	}
 }

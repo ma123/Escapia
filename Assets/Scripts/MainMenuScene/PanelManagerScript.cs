@@ -8,7 +8,7 @@ public class PanelManagerScript : MonoBehaviour {
 	private int currentPanelIndex;
 
 	void Start () {
-		PlayerPrefs.DeleteAll ();
+		//PlayerPrefs.DeleteAll ();
 		currentPanelIndex = 0;
 	}
 
@@ -33,12 +33,12 @@ public class PanelManagerScript : MonoBehaviour {
 		ChangePanel(2);
 	}
 
-/*	public void OpenFacebookPage() {
+	public void OpenFacebookPage() {
 		Application.OpenURL("https://www.facebook.com/atonomgames/?ref=aymt_homepage_panel");
 	}
 
 	public void OpenRatingPlayPage() {
-		Application.OpenURL("https://play.google.com/store/apps/details?id=sk.ag.drawingroad");
+		Application.OpenURL("https://play.google.com/store/apps/details?id=sk.ag.escapia");
 	}
 
 	public void OpenGPlusPage() {
@@ -48,7 +48,7 @@ public class PanelManagerScript : MonoBehaviour {
 	public void OpenMainPage() {
 		Application.OpenURL("https://play.google.com/store/apps/details?id=sk.ag.drawingroad");
 	}
-*/
+
 	public void ClickedExit() {
 		print ("clicked exit");
 		Application.Quit ();

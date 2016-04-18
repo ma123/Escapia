@@ -55,23 +55,14 @@ public class ReactionFromPanelScript : MonoBehaviour {
 	}
 
 	public void NextLevel() {
-		print ("nextLevel");
-		/*string currentLevel = SceneManager.GetActiveScene().name; // ziskam nazov levelu
-		int worldNumber = int.Parse (currentLevel[5].ToString()); // ziskam cislo sveta
-		string[] splitString = currentLevel.Split ('.');
-		int levelNumber = int.Parse (splitString [1]); // ziskam cislo levelu
+		string currentLevel = SceneManager.GetActiveScene().name; 
+		int levelNumber = int.Parse (currentLevel[5].ToString()); // ziskam cislo sveta
 
-		if (levelNumber == LockLevelScript.levels) {  // ak sme v poslednom levele 
-			if (worldNumber == LockLevelScript.worlds) { // ak sme v poslednom svete 
-				//Application.LoadLevel ("MainMenuScene");  // tak sa dostaneme do hlavneho menu
-				SceneManager.LoadScene("MainMenuScene");
-			} else {
-				SceneManager.LoadScene("Level" + (worldNumber + 1) + "." + "1");
-				//Application.LoadLevel ("Level" + (worldNumber + 1) + "." + "1");  // tak otvorime level 1 v dalsom svete
-			}
+		if (levelNumber == LevelSelectionScript.GetNumberOfLevels()) {  // ak sme v poslednom levele
+				SceneManager.LoadScene("LevelSelector");
 		} else {
-			SceneManager.LoadScene(splitString[0]+ "." + (levelNumber+1),LoadSceneMode.Single);
-		}*/
+			SceneManager.LoadScene("Level" + (levelNumber+1),LoadSceneMode.Single);
+		}
 	}
 	
 	public void RestartLevel() {

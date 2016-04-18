@@ -35,22 +35,8 @@ public class PlayerControllerScript : MonoBehaviour {
 		attackTrigger.enabled = false;
 	}
 
-	void FixedUpdate () {
-		#if !UNITY_ANDROID && !UNITY_IOS && !UNITY_BLACKBERRY && !UNITY_WINRT_8_0 && !UNITY_WINRT_8_1
-			Move(Input.GetAxis ("Horizontal"));
-			if(Input.GetKeyDown(KeyCode.Space)) {
-				Crouch();
-				if(Input.GetKeyUp(KeyCode.Space)) {
-					StandUp();
-				}	
-			}
-
-			if(Input.GetKeyDown("a") && !attacking) {
-				Attack();
-			}
-        #else
-		  Move (hInput);
-        #endif
+	void Update () {
+		Move (hInput);
 
 		if(attacking) {
 				if (attackTimer > 0) {
@@ -62,20 +48,19 @@ public class PlayerControllerScript : MonoBehaviour {
 		} 
 			
 		anim.SetBool ("Attack",attacking);
+		anim.SetBool ("Crouch", bIsCrouched);
 	}
 
 	public void Crouch() {
 		bIsCrouched = true;
 		playerCollision.size = new Vector2 (playerCollision.size.x, crouchHeight);
 		playerCollision.offset = new Vector2 (crouchXOffset, crouchYOffset);
-		anim.SetBool ("Crouch", bIsCrouched);
 	}
 
 	public void StandUp() {
 		bIsCrouched = false;
 		playerCollision.size = new Vector2 (playerCollision.size.x, standHeight);
 		playerCollision.offset = new Vector2 (crouchXOffset, standYOffset);
-		anim.SetBool ("Crouch", bIsCrouched);
 	}
 	
 	// pohyb po osi x
@@ -108,11 +93,14 @@ public class PlayerControllerScript : MonoBehaviour {
 	}
 
 	public void Attack() {
-		if (Time.time > waitAttack + lastTime) {
-			attacking = true;
-			attackTimer = attackCD;
-			attackTrigger.enabled = true;
-			lastTime = Time.time;
+		if(!bIsCrouched) {
+			if (Time.time > waitAttack + lastTime) {
+				this.GetComponentInChildren<SoundsAndMusicScript> ().AttackSound (transform);
+				attacking = true;
+				attackTimer = attackCD;
+				attackTrigger.enabled = true;
+				lastTime = Time.time;
+			}
 		}
 	}
 }

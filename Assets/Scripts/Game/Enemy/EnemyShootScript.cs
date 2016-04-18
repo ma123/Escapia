@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BossGunScript : MonoBehaviour {
+public class EnemyShootScript : MonoBehaviour {
 
 	public bool shooting = true;
 	public Rigidbody2D enemyWeaponRigidBody;
@@ -26,13 +26,7 @@ public class BossGunScript : MonoBehaviour {
 	}
 
 	private void BulletMove() {
-		if(bossScript.GetWalkingDirection() > 0.0f) {
-			Rigidbody2D bulletInstance = Instantiate(enemyWeaponRigidBody, transform.position, Quaternion.Euler(new Vector3(0,0,0))) as Rigidbody2D;
-			bulletInstance.velocity = new Vector2(bulletSpeed, 0);
-		}
-		else {
 			Rigidbody2D bulletInstance = Instantiate(enemyWeaponRigidBody, transform.position, Quaternion.Euler(new Vector3(0,0,180f))) as Rigidbody2D;
 			bulletInstance.velocity = new Vector2(-bulletSpeed, 0);
-		}
 	}
 }

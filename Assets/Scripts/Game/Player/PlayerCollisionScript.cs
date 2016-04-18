@@ -3,66 +3,87 @@ using System.Collections;
 
 public class PlayerCollisionScript : MonoBehaviour {
 	public static bool damageLock = true;
-	private float waitTime = 2f;
-	private float lastTime = 0f;
-	public AudioClip ouchClips;
+	private bool jumpLock = false;
+	private float waitTime = 1f;
+	private Vector2 backForce = new Vector2(-2000.0f, 200.0f);
+
+	void Start() {
+		damageLock = true;
+	}
 
 	void FixedUpdate() {
 		if(damageLock) {
 			this.GetComponent<SpriteRenderer> ().color = Color.white;
+		}
+
+		if(jumpLock) {
+			this.GetComponent<Rigidbody2D> ().AddForce (backForce, ForceMode2D.Force);
+			jumpLock = false;
 		}
 	}
 
 	void OnCollisionEnter2D(Collision2D coll) {
 		if (coll.collider.CompareTag ("Enemy1")) {
 			GameObject enemy = coll.collider.gameObject;
-
-			if (Time.time > waitTime + lastTime) {
 				if (damageLock) {
 					damageLock = false;
 					this.GetComponent<SpriteRenderer> ().color = Color.red; // zafarbenie hraca na cerveno
-					AudioSource.PlayClipAtPoint (ouchClips, transform.position);
-					this.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (0f, 200f), ForceMode2D.Force);
+					StartCoroutine (Wait());
+					jumpLock = true;
+					//this.GetComponent<Rigidbody2D> ().AddForce (backForce, ForceMode2D.Force);
 					enemy.GetComponent<Enemy1Patrol> ().EnemyReact ();
-					damageLock = true;  
 				}
-					
-				lastTime = Time.time;
-			}
 		}
 
 		if (coll.collider.CompareTag ("Enemy2")) {
 			GameObject enemy = coll.collider.gameObject;
 
-			if (Time.time > waitTime + lastTime) {
-				if(damageLock) {
-					damageLock = false;
-					this.GetComponent<SpriteRenderer> ().color = Color.red; // zafarbenie hraca na cerveno
-					AudioSource.PlayClipAtPoint(ouchClips, transform.position);
-					this.GetComponent<Rigidbody2D>().AddForce (new Vector2(0f,200f),ForceMode2D.Force);
-
-					enemy.GetComponent<Enemy2Patrol> ().EnemyReact();
-					damageLock = true;  
-				}
-				lastTime = Time.time;
+			if (damageLock) {
+				damageLock = false;
+				this.GetComponent<SpriteRenderer> ().color = Color.red; // zafarbenie hraca na cerveno
+				StartCoroutine (Wait());
+				jumpLock = true;
+				//this.GetComponent<Rigidbody2D> ().AddForce (backForce, ForceMode2D.Force);
+				enemy.GetComponent<Enemy2Patrol> ().EnemyReact ();
 			}
 		}
 
 		if (coll.collider.CompareTag ("Enemy3")) {
 			GameObject enemy = coll.collider.gameObject;
 
-			print (enemy);
-			if (Time.time > waitTime + lastTime) {
-				if(damageLock) {
-					damageLock = false;
-					this.GetComponent<SpriteRenderer> ().color = Color.red; // zafarbenie hraca na cerveno
-					AudioSource.PlayClipAtPoint(ouchClips, transform.position);
-					this.GetComponent<Rigidbody2D>().AddForce (new Vector2(0f,200f),ForceMode2D.Force);
+			if (damageLock) {
+				damageLock = false;
+				this.GetComponent<SpriteRenderer> ().color = Color.red; // zafarbenie hraca na cerveno
+				StartCoroutine (Wait());
+				jumpLock = true;
+				//this.GetComponent<Rigidbody2D> ().AddForce (backForce, ForceMode2D.Force);
+				enemy.GetComponent<Enemy3Static> ().EnemyReact ();
+			}
+		}
 
-					enemy.GetComponent<Enemy3Static> ().EnemyReact();
-					damageLock = true;  
-				}
-				lastTime = Time.time;
+		if (coll.collider.CompareTag ("Enemy4")) {
+			GameObject enemy = coll.collider.gameObject;
+			if (damageLock) {
+				damageLock = false;
+				this.GetComponent<SpriteRenderer> ().color = Color.red; // zafarbenie hraca na cerveno
+				StartCoroutine (Wait());
+				jumpLock = true;
+				//this.GetComponent<Rigidbody2D> ().AddForce (backForce, ForceMode2D.Force);
+
+				enemy.GetComponent<Enemy4Static> ().EnemyReact ();
+			}
+		}
+
+		if (coll.collider.CompareTag ("Enemy5")) {
+			GameObject enemy = coll.collider.gameObject;
+			if (damageLock) {
+				damageLock = false;
+				this.GetComponent<SpriteRenderer> ().color = Color.red; // zafarbenie hraca na cerveno
+				StartCoroutine (Wait());
+				jumpLock = true;
+				//enemy.GetComponent<Rigidbody2D> ().AddForce (backForce, ForceMode2D.Force);
+
+				enemy.GetComponent<Enemy5Patrol> ().EnemyReact ();
 			}
 		}
 
@@ -72,30 +93,92 @@ public class PlayerCollisionScript : MonoBehaviour {
 		}
 	}
 
-	/*void OnCollisionStay2D(Collision2D coll) {
-		if (coll.collider.CompareTag ("Enemy")) {
+	IEnumerator Wait() { 
+		yield return new WaitForSeconds(waitTime);
+		damageLock = true;
+	}
+
+	void OnCollisionStay2D(Collision2D coll) {
+		/*if (coll.collider.CompareTag ("Enemy1")) {
 			GameObject enemy = coll.collider.gameObject;
-			
-			if (Time.time > waitTime + lastTime) {
-				if(damageLock) {
-					damageLock = false;
-					AudioSource.PlayClipAtPoint(ouchClips, transform.position);
-					enemy.GetComponent<EnemyScript> ().EnemyReact();
-					damageLock = true;  
-				}
-				lastTime = Time.time;
+			if (damageLock) {
+				damageLock = false;
+				this.GetComponent<SpriteRenderer> ().color = Color.red; // zafarbenie hraca na cerveno
+				StartCoroutine (Wait());
+				jumpLock = true;
+				//this.GetComponent<Rigidbody2D> ().AddForce (backForce, ForceMode2D.Force);
+				enemy.GetComponent<Enemy1Patrol> ().EnemyReact ();
 			}
 		}
-	}*/
+
+		if (coll.collider.CompareTag ("Enemy2")) {
+			GameObject enemy = coll.collider.gameObject;
+
+			if (damageLock) {
+				damageLock = false;
+				this.GetComponent<SpriteRenderer> ().color = Color.red; // zafarbenie hraca na cerveno
+				StartCoroutine (Wait());
+				jumpLock = true;
+				//this.GetComponent<Rigidbody2D> ().AddForce (backForce, ForceMode2D.Force);
+				enemy.GetComponent<Enemy2Patrol> ().EnemyReact ();
+			}
+		}
+
+		if (coll.collider.CompareTag ("Enemy3")) {
+			GameObject enemy = coll.collider.gameObject;
+
+			if (damageLock) {
+				damageLock = false;
+				this.GetComponent<SpriteRenderer> ().color = Color.red; // zafarbenie hraca na cerveno
+				StartCoroutine (Wait());
+				jumpLock = true;
+				//this.GetComponent<Rigidbody2D> ().AddForce (backForce, ForceMode2D.Force);
+				enemy.GetComponent<Enemy3Static> ().EnemyReact ();
+			}
+		}
+
+		if (coll.collider.CompareTag ("Enemy4")) {
+			GameObject enemy = coll.collider.gameObject;
+			if (damageLock) {
+				damageLock = false;
+				this.GetComponent<SpriteRenderer> ().color = Color.red; // zafarbenie hraca na cerveno
+				StartCoroutine (Wait());
+				jumpLock = true;
+				//this.GetComponent<Rigidbody2D> ().AddForce (backForce, ForceMode2D.Force);
+
+				enemy.GetComponent<Enemy4Static> ().EnemyReact ();
+			}
+		}
+
+		if (coll.collider.CompareTag ("Enemy5")) {
+			GameObject enemy = coll.collider.gameObject;
+			if (damageLock) {
+				damageLock = false;
+				this.GetComponent<SpriteRenderer> ().color = Color.red; // zafarbenie hraca na cerveno
+				StartCoroutine (Wait());
+				jumpLock = true;
+				//enemy.GetComponent<Rigidbody2D> ().AddForce (backForce, ForceMode2D.Force);
+
+				enemy.GetComponent<Enemy5Patrol> ().EnemyReact ();
+			}
+		}
+
+		if (coll.collider.CompareTag ("Trampoline")) {
+			GameObject trampoline = coll.collider.gameObject;
+			trampoline.GetComponent<TrampolineScript> ().TrampolineReact ();
+		}*/
+	}
 
 	void OnTriggerEnter2D(Collider2D coll) {
 		if(coll.GetComponent<Collider2D>().CompareTag("Coin")) {
 			GameObject coin = coll.GetComponent<Collider2D>().gameObject;
+			this.GetComponentInChildren<SoundsAndMusicScript> ().PickupBone (transform);
 			coin.GetComponent<CoinScript> ().CoinReact();
 		}
 
 		if(coll.GetComponent<Collider2D>().CompareTag("Life")) {
 			GameObject life = coll.GetComponent<Collider2D>().gameObject;
+			this.GetComponentInChildren<SoundsAndMusicScript> ().PickupLife (transform);
 			life.GetComponent<LifeScript> ().LifeReact();
 		}
 
@@ -106,6 +189,7 @@ public class PlayerCollisionScript : MonoBehaviour {
 
 		if(coll.GetComponent<Collider2D>().CompareTag("EndLevel")) {
 			GameObject endLevel = coll.GetComponent<Collider2D>().gameObject;
+			this.GetComponentInChildren<SoundsAndMusicScript> ().WinnSound (transform);
 			endLevel.GetComponent<EndLevelScript> ().EndLevelReact();
 		}
 	}

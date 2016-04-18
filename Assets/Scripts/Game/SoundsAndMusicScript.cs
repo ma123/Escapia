@@ -3,9 +3,6 @@ using System;
 using System.Collections;
 
 public class SoundsAndMusicScript : MonoBehaviour {
-	// sound effect
-
-//	public AudioClip noInkClips;
 	// music
 	public AudioClip bgIntro01;
 	public AudioClip bgLoop01;
@@ -13,6 +10,13 @@ public class SoundsAndMusicScript : MonoBehaviour {
     public AudioClip bgLoop02;
 	public AudioClip bgIntro03;
 	public AudioClip bgLoop03;
+	// sfx sounds
+	public AudioClip lifeClip;
+	public AudioClip boneClip;
+	public AudioClip winnClip;
+	public AudioClip loseClip;
+	public AudioClip hurtClip;
+	public AudioClip attackClip;
 
 	private AudioSource musicBackground;
 
@@ -62,16 +66,69 @@ public class SoundsAndMusicScript : MonoBehaviour {
 		return musicBackground;
 	}
 
-	/*public void PickupInkAudio(Transform transPos) {
-		PhoneVibrate ();
-
+	public void PickupLife(Transform transPos) {
 		if (soundEnabled == 1) {
 			try {
-				AudioSource.PlayClipAtPoint (inkClips, transPos.position);
+				AudioSource.PlayClipAtPoint (lifeClip, transPos.position);
 			}
 			catch (Exception e) {
 				Debug.Log ("Sound problem " + e);
 			}  
 		}
-	}*/
+	}
+
+	public void PickupBone(Transform transPos) {
+		if (soundEnabled == 1) {
+			try {
+				AudioSource.PlayClipAtPoint (boneClip, transPos.position);
+			}
+			catch (Exception e) {
+				Debug.Log ("Sound problem " + e);
+			}  
+		}
+	}
+
+	public void LooseSound(Transform transPos) {
+		if (soundEnabled == 1) {
+			try {
+				AudioSource.PlayClipAtPoint (loseClip, transPos.position);
+			}
+			catch (Exception e) {
+				Debug.Log ("Sound problem " + e);
+			}  
+		}
+	}
+
+	public void WinnSound(Transform transPos) {
+		if (soundEnabled == 1) {
+			try {
+				AudioSource.PlayClipAtPoint (winnClip, transPos.position);
+			}
+			catch (Exception e) {
+				Debug.Log ("Sound problem " + e);
+			}  
+		}
+	}
+
+	public void HurtSound(Transform transPos) {
+		if (soundEnabled == 1) {
+			try {
+				AudioSource.PlayClipAtPoint (hurtClip, transPos.position);
+			}
+			catch (Exception e) {
+				Debug.Log ("Sound problem " + e);
+			}  
+		}
+	}
+
+	public void AttackSound(Transform transPos) {
+		if (soundEnabled == 1) {
+			try {
+				AudioSource.PlayClipAtPoint (attackClip, transPos.position);
+			}
+			catch (Exception e) {
+				Debug.Log ("Sound problem " + e);
+			}  
+		}
+	}
 }

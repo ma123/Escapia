@@ -2,9 +2,9 @@
 using System.Collections;
 
 public class Enemy1Patrol : MonoBehaviour {
-	public int enemyHP = 2;
+	public int enemyHP = 1;
 	public float attackStrength = 20;
-	public int enemyGain = 2;
+	public int enemyGain = 1;
 
 	public float walkSpeed = 1.0f;      // Walkspeed
 	public float wallLeft = 0.0f;       // Define wallLeft

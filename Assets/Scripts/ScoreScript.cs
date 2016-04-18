@@ -18,6 +18,7 @@ public class ScoreScript : MonoBehaviour {
 
 	public static void AddScore(int gains) {
 		money += gains;
+		PlayerPrefs.SetInt("money", money);
 		RefreshScoreText ();
 	}
 
