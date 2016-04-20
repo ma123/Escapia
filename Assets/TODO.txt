@@ -12,8 +12,9 @@
 - pdhodenie hráča dozadu Y...........................
 - pridat strigu ktora bude sa h?ba? po ur?it?ch bodoch popripade patrol ktor? bude strie?a? Y.........................
 
-
+- problem s pohybom a krcenim
 - upraviť enemy 3 statického
+- po zabiti sa obcas nepriatelia ktory su trigger hýbu po podlahe
 - zvysit hratelnost
 - boss enemy
 - background music orezat

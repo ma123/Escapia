@@ -52,15 +52,19 @@ public class PlayerControllerScript : MonoBehaviour {
 	}
 
 	public void Crouch() {
-		bIsCrouched = true;
-		playerCollision.size = new Vector2 (playerCollision.size.x, crouchHeight);
-		playerCollision.offset = new Vector2 (crouchXOffset, crouchYOffset);
+		if(hInput == 0) {
+			bIsCrouched = true;
+			playerCollision.size = new Vector2 (playerCollision.size.x, crouchHeight);
+			playerCollision.offset = new Vector2 (crouchXOffset, crouchYOffset);
+		}
 	}
 
 	public void StandUp() {
-		bIsCrouched = false;
-		playerCollision.size = new Vector2 (playerCollision.size.x, standHeight);
-		playerCollision.offset = new Vector2 (crouchXOffset, standYOffset);
+		if (hInput == 0) {
+			bIsCrouched = false;
+			playerCollision.size = new Vector2 (playerCollision.size.x, standHeight);
+			playerCollision.offset = new Vector2 (crouchXOffset, standYOffset);
+		}
 	}
 	
 	// pohyb po osi x

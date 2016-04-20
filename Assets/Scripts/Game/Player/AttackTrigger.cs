@@ -11,7 +11,7 @@ public class AttackTrigger : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D col) {
-		if (lockAttack) {
+		//if (lockAttack) {
 			if ((col.isTrigger != true) && col.CompareTag ("Enemy1")) {
 				col.GetComponent<Enemy1Patrol> ().EnemyHit (attackDamage);
 				Instantiate(attackParticle, transform.position, Quaternion.identity);
@@ -36,15 +36,15 @@ public class AttackTrigger : MonoBehaviour {
 				col.GetComponent<Enemy5Patrol> ().EnemyHit (attackDamage);
 				Instantiate(attackParticle, transform.position, Quaternion.identity);
 			}
-			lockAttack = false;
+			//lockAttack = false;
 
 
-			StartCoroutine(Wait());
-		}
+			//StartCoroutine(Wait());
+		//}
 	}
 
-	IEnumerator Wait() { 
+	/*IEnumerator Wait() { 
 		yield return new WaitForSeconds(1f);
 		lockAttack = true;
-	}
+	}*/
 }
