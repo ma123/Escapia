@@ -46,7 +46,7 @@ public class PanelManagerScript : MonoBehaviour {
 	}
 
 	public void OpenMainPage() {
-		Application.OpenURL("https://play.google.com/store/apps/details?id=sk.ag.drawingroad");
+		Application.OpenURL("http://www.escapia.tk/");
 	}
 
 	public void ClickedExit() {
