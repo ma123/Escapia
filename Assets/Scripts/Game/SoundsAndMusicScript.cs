@@ -19,7 +19,7 @@ public class SoundsAndMusicScript : MonoBehaviour {
 	public AudioClip attackClip;
 
 	private AudioSource musicBackground;
-
+	private float sfxVolume = 1.0f;
 	private int soundEnabled = 0;
 	private int musicEnabled = 0;
 	
@@ -124,7 +124,7 @@ public class SoundsAndMusicScript : MonoBehaviour {
 	public void AttackSound(Transform transPos) {
 		if (soundEnabled == 1) {
 			try {
-				AudioSource.PlayClipAtPoint (attackClip, transPos.position);
+				AudioSource.PlayClipAtPoint (attackClip, transPos.position, sfxVolume);
 			}
 			catch (Exception e) {
 				Debug.Log ("Sound problem " + e);

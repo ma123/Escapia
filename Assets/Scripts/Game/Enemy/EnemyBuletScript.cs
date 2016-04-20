@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class EnemyBuletScript : MonoBehaviour {
-	private float gunStrength = 10;
+	private float gunStrength = 20;
 	
 	void Start () {
 		Destroy(gameObject, 3); // znicenie naboja po 2 sekundach ak nenajde ciel
