@@ -3,17 +3,10 @@ using System.Collections;
 
 public class PlayerCollisionScript : MonoBehaviour {
 	public static bool damageLock = true;
-	private bool jumpLock = false;
 	private float waitTime = 1f;
 
 	void Start() {
 		damageLock = true;
-	}
-
-	void FixedUpdate() {
-		if(damageLock) {
-			this.GetComponent<SpriteRenderer> ().color = Color.white;
-		}
 	}
 
 	void OnCollisionEnter2D(Collision2D coll) {
@@ -76,6 +69,7 @@ public class PlayerCollisionScript : MonoBehaviour {
 	IEnumerator Wait() { 
 		yield return new WaitForSeconds(waitTime);
 		damageLock = true;
+		this.GetComponent<SpriteRenderer> ().color = Color.white;
 	}
 
 	void OnCollisionStay2D(Collision2D coll) {

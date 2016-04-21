@@ -48,7 +48,7 @@ public class Enemy5Patrol : MonoBehaviour {
 			if(enemyHP <= 0) {
 				walking = false;
 				this.gameObject.tag = "Untagged";
-				enemyRigidbody.constraints = RigidbodyConstraints2D.FreezePositionY;
+				enemyRigidbody.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
 				enemyCollision.isTrigger = true;
 				ScoreScript.AddScore(enemyGain);
 				anim.SetBool ("Death",true);

@@ -57,8 +57,7 @@ public class Enemy1Patrol : MonoBehaviour {
 			anim.SetBool ("Death",true);
 			this.gameObject.tag = "Untagged";
 			if (isTrigger) {
-				enemyRigidbody.constraints = RigidbodyConstraints2D.FreezePositionY;
-				//enemyRigidbody.constraints = RigidbodyConstraints2D.FreezePositionX;
+				enemyRigidbody.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
 				transform.position = new Vector2(transform.position.x, transform.position.y - downOff);
 				enemyCollision.isTrigger = true;
 			} else {

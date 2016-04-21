@@ -9,6 +9,8 @@ public class Enemy3Static : MonoBehaviour {
 	private Animator anim;
 	private BoxCollider2D enemyCollision;
 	private Rigidbody2D enemyRigidbody;
+	private bool switchCollider = false;
+	private bool oneAnimation = true;
 
 	private bool walking = true;
 	private bool attacking = false;
@@ -27,6 +29,14 @@ public class Enemy3Static : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		switchCollider = this.GetComponentInChildren<SwitchCollider> ().GetSwitchCollider ();
+		if (switchCollider) {
+			if(oneAnimation) {
+				anim.SetBool ("Rise",true);
+				oneAnimation = false;
+			}
+		} 
+
 		if(walking) {
 			Attack();	
 		}
@@ -60,10 +70,11 @@ public class Enemy3Static : MonoBehaviour {
 	public void EnemyHit (int gunStrength) {
 		enemyHP -= gunStrength;
 		if(enemyHP <= 0) {
+			anim.SetBool ("Rise",false);
 			anim.SetBool ("Death",true);
 			walking = false;
 			this.gameObject.tag = "Untagged";
-			enemyRigidbody.constraints = RigidbodyConstraints2D.FreezePositionY;
+			enemyRigidbody.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
 			enemyCollision.isTrigger = true;
 
 			ScoreScript.AddScore(enemyGain);

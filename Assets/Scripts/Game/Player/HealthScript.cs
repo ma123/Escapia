@@ -35,9 +35,7 @@ public class HealthScript : MonoBehaviour {
 			soundsAndMusic.GetComponent<SoundsAndMusicScript> ().LooseSound (transform);
 
 			player.GetComponent<SpriteRenderer>().enabled = false;
-			//player.GetComponent<Rigidbody2D> ().constraints = RigidbodyConstraints2D.FreezePositionX;
-			//player.GetComponent<BoxCollider2D> ().isTrigger = true;
-			//player.GetComponent<CircleCollider2D> ().isTrigger = true;
+			player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
 			Instantiate(deadParticles, player.transform.position, player.transform.rotation);
 			isParticle = false;
 		}
