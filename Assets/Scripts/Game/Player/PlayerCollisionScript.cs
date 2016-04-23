@@ -60,9 +60,14 @@ public class PlayerCollisionScript : MonoBehaviour {
 
 	void DamageLock() {
 		damageLock = false;
+		Vector2 newPosition;
 		this.GetComponent<SpriteRenderer> ().color = Color.red; // zafarbenie hraca na cerveno
 		StartCoroutine (Wait());
-		Vector2 newPosition = new Vector2 (this.transform.position.x - 1f, this.transform.position.y + 1f);
+		if(this.GetComponent<PlayerControllerScript>().GetFacingRight()) {
+			newPosition = new Vector2 (this.transform.position.x - 1f, this.transform.position.y + 1f);
+		} else {
+			newPosition = new Vector2 (this.transform.position.x + 1f, this.transform.position.y + 1f);
+		}
 		this.transform.position = newPosition;
 	}
 
@@ -100,6 +105,14 @@ public class PlayerCollisionScript : MonoBehaviour {
 			GameObject endLevel = coll.GetComponent<Collider2D>().gameObject;
 			this.GetComponentInChildren<SoundsAndMusicScript> ().WinnSound (transform);
 			endLevel.GetComponent<EndLevelScript> ().EndLevelReact();
+		}
+
+		if (coll.GetComponent<Collider2D>().CompareTag("Enemy1")) {
+			GameObject enemy = coll.GetComponent<Collider2D>().gameObject;
+			if (damageLock) {
+				DamageLock ();
+				enemy.GetComponent<Enemy1Patrol> ().EnemyReact ();
+			}
 		}
 	}
 }
