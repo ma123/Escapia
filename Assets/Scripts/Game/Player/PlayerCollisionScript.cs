@@ -106,13 +106,5 @@ public class PlayerCollisionScript : MonoBehaviour {
 			this.GetComponentInChildren<SoundsAndMusicScript> ().WinnSound (transform);
 			endLevel.GetComponent<EndLevelScript> ().EndLevelReact();
 		}
-
-		if (coll.GetComponent<Collider2D>().CompareTag("Enemy1")) {
-			GameObject enemy = coll.GetComponent<Collider2D>().gameObject;
-			if (damageLock) {
-				DamageLock ();
-				enemy.GetComponent<Enemy1Patrol> ().EnemyReact ();
-			}
-		}
 	}
 }
