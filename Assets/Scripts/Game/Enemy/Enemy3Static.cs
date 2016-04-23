@@ -17,7 +17,7 @@ public class Enemy3Static : MonoBehaviour {
 	private float attackTimer = 0f;
 	private float attackCD = 1.0f;
 	public Collider2D attackTrigger;
-	private float waitAttack = 5.0f;
+	public float waitAttack = 3.0f;
 	private float lastTime = 0.0f;
 
 	void Start () {

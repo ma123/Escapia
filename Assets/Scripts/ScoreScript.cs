@@ -24,6 +24,7 @@ public class ScoreScript : MonoBehaviour {
 
 	public static void RemoveScore(int lost) {
 		money -= lost;
+		PlayerPrefs.SetInt("money", money);
 		RefreshScoreText ();
 	}
 

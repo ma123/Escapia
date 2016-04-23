@@ -51,23 +51,25 @@ public class Enemy1Patrol : MonoBehaviour {
 	}
 
 	public void EnemyHit (int gunStrength) {
-		enemyHP -= gunStrength;
-		if(enemyHP <= 0) {
-			walking = false;
-			anim.SetBool ("Death",true);
-			this.gameObject.tag = "Untagged";
-			if (isTrigger) {
-				enemyRigidbody.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
-				transform.position = new Vector2(transform.position.x, transform.position.y - downOff);
-				enemyCollision.isTrigger = true;
-			} else {
-				enemyRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+		if(walking) {
+			enemyHP -= gunStrength;
+			if(enemyHP <= 0) {
+				walking = false;
+				anim.SetBool ("Death",true);
+				this.gameObject.tag = "Untagged";
+				if (isTrigger) {
+					enemyRigidbody.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
+					transform.position = new Vector2(transform.position.x, transform.position.y - downOff);
+					enemyCollision.isTrigger = true;
+				} else {
+					enemyRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
 
-				enemyCollision.size = new Vector2 (xColliderSize, yColliderSize);
-				enemyCollision.offset = new Vector2 (xCollOff, yCollOff);
+					enemyCollision.size = new Vector2 (xColliderSize, yColliderSize);
+					enemyCollision.offset = new Vector2 (xCollOff, yCollOff);
+				}
+
+				ScoreScript.AddScore(enemyGain);
 			}
-
-			ScoreScript.AddScore(enemyGain);
 		}
 	}
 

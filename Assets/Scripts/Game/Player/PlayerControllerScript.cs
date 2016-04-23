@@ -107,5 +107,9 @@ public class PlayerControllerScript : MonoBehaviour {
 			}
 		}
 	}
+
+	public bool GetFacingRight() {
+		return facingRight;
+	}
 }
 
