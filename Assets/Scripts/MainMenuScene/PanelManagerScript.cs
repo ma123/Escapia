@@ -34,7 +34,7 @@ public class PanelManagerScript : MonoBehaviour {
 	}
 
 	public void OpenFacebookPage() {
-		Application.OpenURL("https://www.facebook.com/atonomgames/?ref=aymt_homepage_panel");
+		Application.OpenURL("https://www.facebook.com/atonomgames/");
 	}
 
 	public void OpenRatingPlayPage() {
@@ -42,7 +42,7 @@ public class PanelManagerScript : MonoBehaviour {
 	}
 
 	public void OpenGPlusPage() {
-		Application.OpenURL("https://play.google.com/store/apps/details?id=sk.ag.drawingroad");
+		Application.OpenURL("https://plus.google.com/u/0/");
 	}
 
 	public void OpenMainPage() {
