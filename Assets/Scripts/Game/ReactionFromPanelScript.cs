@@ -61,7 +61,8 @@ public class ReactionFromPanelScript : MonoBehaviour {
 		if (levelNumber == LevelSelectionScript.GetNumberOfLevels()) {  // ak sme v poslednom levele
 				SceneManager.LoadScene("LevelSelector");
 		} else {
-			SceneManager.LoadScene((levelNumber+1),LoadSceneMode.Single);
+			string levelString = (levelNumber + 1).ToString();
+			SceneManager.LoadScene(levelString,LoadSceneMode.Single);
 		}
 	}
 	
