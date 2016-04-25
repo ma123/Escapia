@@ -11,7 +11,7 @@ public class LevelSelectionScript : MonoBehaviour {
 
 	void Start() {
 		for(int j = 2; j <= numberOfLevels; j++){ // podla poctu levelo
-			if((PlayerPrefs.GetInt("level"+j.ToString(), 0))==1){
+			if((PlayerPrefs.GetInt("lvl" + j.ToString(), 0))==1){
 				GameObject.Find("Lvl"+j+"Lock").SetActive(false); // vypnutie tlacitka zo zamkom nad skutocnym tlacitkom
 			}
 		}
@@ -33,7 +33,7 @@ public class LevelSelectionScript : MonoBehaviour {
 
 	// asynchronne nacitanie sceny
 	IEnumerator DisplayLevelLoadingScreen(string worldLevel) {
-		AsyncOperation async = 	SceneManager.LoadSceneAsync("Level" + worldLevel);//Application.LoadLevelAsync ("Level"+worldLevel);
+		AsyncOperation async = 	SceneManager.LoadSceneAsync(worldLevel);//Application.LoadLevelAsync ("Level"+worldLevel);
 		levelLoadingPanel.SetActive (true);
 		Scrollbar progressBar = levelLoadingPanel.GetComponentInChildren<Scrollbar> ();
 

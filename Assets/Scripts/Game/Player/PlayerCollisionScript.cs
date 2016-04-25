@@ -52,6 +52,22 @@ public class PlayerCollisionScript : MonoBehaviour {
 			}
 		}
 
+		if (coll.collider.CompareTag ("LeviathanHearth")) {
+			GameObject enemy = coll.collider.gameObject;
+			if (damageLock) {
+				DamageLock ();
+				enemy.GetComponent<LeviathanHearth> ().EnemyReact ();
+			}
+		}
+
+		if (coll.collider.CompareTag ("LeviathanBoss")) {
+			GameObject enemy = coll.collider.gameObject;
+			if (damageLock) {
+				DamageLock ();
+				enemy.GetComponent<BossScript> ().EnemyReact ();
+			}
+		}
+
 		if (coll.collider.CompareTag ("Trampoline")) {
 			GameObject trampoline = coll.collider.gameObject;
 			trampoline.GetComponent<TrampolineScript> ().TrampolineReact ();

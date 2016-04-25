@@ -45,6 +45,18 @@ public class PlayerBullet : MonoBehaviour {
 			Destroy (Instantiate(attackParticle, transform.position, Quaternion.identity), 1.0f);
 			Destroy (gameObject);
 		}
+
+		if (col.tag == "LeviathanHearth") {
+			col.GetComponent<LeviathanHearth> ().EnemyHit (gunStrength);
+			Destroy (Instantiate(attackParticle, transform.position, Quaternion.identity), 1.0f);
+			Destroy (gameObject);
+		}
+
+		if (col.tag == "LeviathanBoss") {
+			col.GetComponent<BossScript> ().EnemyHit (gunStrength);
+			Destroy (Instantiate(attackParticle, transform.position, Quaternion.identity), 1.0f);
+			Destroy (gameObject);
+		}
 			
 		if (col.tag == "Wall") {
 				Destroy (gameObject);

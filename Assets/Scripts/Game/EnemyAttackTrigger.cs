@@ -15,9 +15,14 @@ public class EnemyAttackTrigger : MonoBehaviour {
 			if(lockAttack) {
 				lockAttack = false;
 				GameObject health = GameObject.FindGameObjectWithTag("HealthBarReact");
+				Vector2 newPosition;
 				health.GetComponent<HealthScript> ().Hit (attackDamage);
 				player.GetComponent<SpriteRenderer> ().color = Color.red; // zafarbenie hraca na cerveno
-				Vector2 newPosition = new Vector2 (player.transform.position.x - 1f, player.transform.position.y + 1f);
+				if(player.GetComponent<PlayerControllerScript>().GetFacingRight()) {
+					newPosition = new Vector2 (this.transform.position.x - 1f, this.transform.position.y + 1f);
+				} else {
+					newPosition = new Vector2 (this.transform.position.x + 1f, this.transform.position.y + 1f);
+				}
 				player.transform.position = newPosition;
 				StartCoroutine(Wait());
 			}

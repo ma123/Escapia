@@ -4,8 +4,8 @@ using System.Collections;
 public class LeviathanHearth : MonoBehaviour {
 	public int enemyHP = 2;
 	public float attackStrength = 20;
-	public int enemyGain = 2;
-	public int hearthNumber = 0;
+	public int enemyGain = 1;
+	public GameObject hearthParticle;
 
 	private BoxCollider2D enemyCollision;
 	private Rigidbody2D enemyRigidbody;
@@ -46,6 +46,7 @@ public class LeviathanHearth : MonoBehaviour {
 			attackTimer = attackCD;
 			attackTrigger.enabled = true;
 			lastTime = Time.time;
+			Destroy (Instantiate(hearthParticle, transform.position, Quaternion.identity), 1.0f);
 		}
 	}
 
@@ -61,12 +62,13 @@ public class LeviathanHearth : MonoBehaviour {
 			this.gameObject.tag = "Untagged";
 			enemyRigidbody.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY;
 			enemyCollision.isTrigger = true;
+			this.GetComponent<SpriteRenderer> ().enabled = false;
 
 			ScoreScript.AddScore(enemyGain);
 		}
 	}
 
-	public int GetHearthNumber() {
-		return hearthNumber;
+	public bool GetWalking() {
+		return walking;
 	}
 }

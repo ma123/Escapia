@@ -56,12 +56,12 @@ public class ReactionFromPanelScript : MonoBehaviour {
 
 	public void NextLevel() {
 		string currentLevel = SceneManager.GetActiveScene().name; 
-		int levelNumber = int.Parse (currentLevel[5].ToString()); // ziskam cislo sveta
+		int levelNumber = int.Parse (currentLevel.ToString()); // ziskam cislo levela
 
 		if (levelNumber == LevelSelectionScript.GetNumberOfLevels()) {  // ak sme v poslednom levele
 				SceneManager.LoadScene("LevelSelector");
 		} else {
-			SceneManager.LoadScene("Level" + (levelNumber+1),LoadSceneMode.Single);
+			SceneManager.LoadScene((levelNumber+1),LoadSceneMode.Single);
 		}
 	}
 	

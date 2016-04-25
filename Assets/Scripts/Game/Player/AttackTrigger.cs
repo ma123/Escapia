@@ -37,6 +37,16 @@ public class AttackTrigger : MonoBehaviour {
 				col.GetComponent<Enemy5Patrol> ().EnemyHit (attackDamage);
 				Instantiate(attackParticle, transform.position, Quaternion.identity);
 			}
+
+			if ((col.isTrigger != true) && col.CompareTag ("LeviathanHearth")) {
+				col.GetComponent<LeviathanHearth> ().EnemyHit (attackDamage);
+				Instantiate(attackParticle, transform.position, Quaternion.identity);
+			}
+
+			if ((col.isTrigger != true) && col.CompareTag ("LeviathanBoss")) {
+				col.GetComponent<LeviathanHearth> ().EnemyHit (attackDamage);
+				Instantiate(attackParticle, transform.position, Quaternion.identity);
+			}
 			lockAttack = false;
 
 			StartCoroutine(Wait());

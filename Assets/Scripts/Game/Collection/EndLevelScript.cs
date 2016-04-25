@@ -21,9 +21,9 @@ public class EndLevelScript : MonoBehaviour {
 
 	protected void UnlockLevels (){
 		for (int i = 1; i <= LevelSelectionScript.GetNumberOfLevels(); i++) {
-			if (currentLevel == "Level" + i.ToString ()) {
+			if (currentLevel == i.ToString ()) {
 				levelIndex = (i + 1);
-				PlayerPrefs.SetInt ("level" + levelIndex.ToString (), 1);
+				PlayerPrefs.SetInt ("lvl" + levelIndex.ToString (), 1);
 			}
 		}
 	}
