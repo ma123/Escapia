@@ -39,6 +39,7 @@ public class ReactionFromPanelScript : MonoBehaviour {
 		switch(reaction) {
 		case 1:    //pause
 			btnInteractable.GetComponent<Button>().interactable = false;
+			btnInteractableBack.GetComponent<Button> ().interactable = true;
 			break;
 
 		case 2:   //dead
@@ -46,6 +47,7 @@ public class ReactionFromPanelScript : MonoBehaviour {
 			btnInteractableBack.GetComponent<Button> ().interactable = false;
 			break;
 		case 3:   //winn
+			btnInteractable.GetComponent<Button> ().interactable = true;
 			btnInteractableBack.GetComponent<Button> ().interactable = false;
 			break;
 		default:
