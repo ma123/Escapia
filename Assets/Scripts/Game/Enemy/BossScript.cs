@@ -56,7 +56,8 @@ public class BossScript : MonoBehaviour {
 			enemyCollision.isTrigger = true;
 
 			UnlockLevels ();
-			endLevelPanel.GetComponent<ReactionFromPanelScript> ().PausePanelReaction (3);
+
+			StartCoroutine(WaitEnd());
 		}
 	}
 
@@ -67,6 +68,12 @@ public class BossScript : MonoBehaviour {
 				PlayerPrefs.SetInt ("lvl" + levelIndex.ToString (), 1);
 			}
 		}
+	}
+
+	// prejdu 2 sekundy nasledne sa firstMeasure zmeni na true
+	IEnumerator WaitEnd() { 
+		yield return new WaitForSeconds(2f);
+		endLevelPanel.GetComponent<ReactionFromPanelScript> ().PausePanelReaction (3);
 	}
 }
 
